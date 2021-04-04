@@ -1,15 +1,19 @@
 import Image from 'next/image';
+import Head from 'next/head';
 
 import Button from 'components/Button';
 import questions from 'questions.json';
+import Header from 'components/Header';
 
 import styles from './index.module.scss';
 
 export default function Home() {
 	return (
 		<>
-			<h1 className="title">NextCompass</h1>
-			<hr />
+			<Head>
+				<title>NextCompass</title>
+			</Head>
+			<Header />
 			<div className={styles.BannerContainer}>
 				<Image height={1300} id="banner" src="/compass.png" width={1850} />
 			</div>

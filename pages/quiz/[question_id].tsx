@@ -1,10 +1,13 @@
 /* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
+import Head from 'next/head';
+
 import React from 'react';
 
 import Answer from 'components/Answer';
 import useQuestions from 'hooks/useQuestions';
+import Header from 'components/Header';
 
 export function getServerSideProps(ctx: GetServerSidePropsContext) {
 	// do nothing, I just don't want this page statically optimized lol
@@ -17,8 +20,12 @@ export default function Quiz(
 	const { question, questionCount } = useQuestions();
 	return (
 		<>
-			<h1 className="title">NextCompass</h1>
-			<hr />
+			<Head>
+				<title>
+					Question {question.id + 1} of {questionCount} - NextCompass
+				</title>
+			</Head>
+			<Header />
 			<h2 id="question-number" style={{ textAlign: 'center' }}>
 				Question {question.id + 1} of {questionCount}
 			</h2>

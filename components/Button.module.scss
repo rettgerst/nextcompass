@@ -5,8 +5,8 @@
 	border-radius: 8pt;
 	color: white;
 	padding: 8pt;
-	width: 50%;
-	min-width: 500pt;
+	width: 100%;
+	max-width: 500pt;
 	text-align: center;
 	text-decoration: none;
 	display: block;
@@ -14,6 +14,8 @@
 	margin: -2px auto;
 	cursor: pointer;
 	margin-bottom: 0.5em;
+	box-sizing: border-box;
+	user-select: none;
 
 	&:disabled {
 		background-color: #ddd;
@@ -38,6 +40,6 @@
 	}
 
 	&:active {
-		box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.3);
+		box-shadow: inset 0px 3px 15px rgba(0, 0, 0, 0.3);
 	}
 }

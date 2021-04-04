@@ -3,7 +3,9 @@
 
 import { GetServerSidePropsContext } from 'next';
 
-import { useMemo } from 'react';
+import Head from 'next/head';
+
+import React, { useMemo } from 'react';
 
 import useAnswers from 'hooks/useAnswers';
 import questions from 'questions.json';
@@ -13,6 +15,7 @@ import sumAnswers from 'functions/sumAnswers';
 import { Answers } from 'Answers';
 import getPositionDescription from 'functions/getPositionDescription';
 import { Axes } from 'types';
+import Header from 'components/Header';
 
 import styles from './Results.module.scss';
 
@@ -27,8 +30,10 @@ export default function Results() {
 
 	return (
 		<div className={styles.ResultsPage}>
-			<h1 className="title">NextCompass</h1>
-			<hr />
+			<Head>
+				<title>Results - NextCompass</title>
+			</Head>
+			<Header />
 			<h2>Results</h2>
 			<div className={styles.CompassContainer}>
 				<Compass className={styles.CompassImage} results={results} />
