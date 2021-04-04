@@ -7,7 +7,7 @@ function linearGradient(
 	endColor: string,
 	directionDeg: number
 ) {
-	return `linear-gradient(${directionDeg}deg, ${startColor} 0%, ${startColor} 50%, ${endColor} 50%, ${endColor} 100%);`;
+	return `linear-gradient(${directionDeg}deg, ${startColor} 0%, ${startColor} 50%, ${endColor} 50%, ${endColor} 100%)`;
 }
 
 interface PosDesc {
