@@ -10,6 +10,9 @@ import questions from 'questions.json';
 import Button from 'components/Button';
 import Compass from 'components/Compass';
 import sumAnswers from 'functions/sumAnswers';
+import { Answers } from 'Answers';
+import getPositionDescription from 'functions/getPositionDescription';
+import { Axes } from 'types';
 
 import styles from './Results.module.scss';
 
@@ -23,41 +26,50 @@ export default function Results() {
 	const results = useMemo(() => sumAnswers(answers), [answers]);
 
 	return (
-		<>
+		<div className={styles.ResultsPage}>
 			<h1 className="title">NextCompass</h1>
 			<hr />
-			<h1 className="title">Results</h1>
+			<h2>Results</h2>
 			<div className={styles.CompassContainer}>
 				<Compass className={styles.CompassImage} results={results} />
 			</div>
-			<table style={{ margin: 'auto' }}>
-				<thead>
-					<tr>
-						<th>Question</th>
-						<th>Answer</th>
-						<th>Orientation</th>
-					</tr>
-				</thead>
-				<tbody>
-					{questions.map(q => (
-						<tr key={q.id}>
-							<td>{q.question}</td>
-							<td>{answers[q.id]}</td>
-							<td>
-								{Object.entries(q.effects)
-									.map(
-										([axis, strength]) =>
-											`${axis}: ${strength! * answers[q.id]}`
-									)
-									.join(', ')}
-							</td>
+			<h2>Your Answers</h2>
+			<div className={styles.AnswerTableWrap}>
+				<table className={styles.AnswerTable}>
+					<thead>
+						<tr>
+							<th>Question</th>
+							<th>Answer</th>
+							<th>Orientation</th>
 						</tr>
-					))}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{questions.map(q => {
+							// simplifying assumption that there is only one effect per question
+							// currently this is correct but may break if questions.json is ever changed
+							const [axis, effect] = Object.entries(q.effects)[0] as [
+								Axes,
+								number
+							];
+
+							const desc = getPositionDescription(axis, effect * answers[q.id]);
+
+							return (
+								<tr key={q.id}>
+									<td>{q.question}</td>
+									<td>{Answers[answers[q.id]]}</td>
+									<td className={styles.Orientation} style={desc.css}>
+										{desc.label}
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
 			<Button href="/" style={{ backgroundColor: '#2196f3' }}>
 				Back
 			</Button>
-		</>
+		</div>
 	);
 }
