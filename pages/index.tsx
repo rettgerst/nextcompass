@@ -58,8 +58,8 @@ export default function Home() {
 				anyway). It looks nicer and takes less clicks to answer.
 			</blockquote>
 			<p>
-				In addition, NextCompass uses a modernized development framework, and
-				also fully works with JavaScript disabled!
+				This project mostly serves as an example Next.js application, but is
+				also fully functional as a political compass test.
 			</p>
 		</>
 	);
