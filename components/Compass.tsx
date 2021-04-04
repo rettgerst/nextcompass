@@ -1,3 +1,4 @@
+/* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { HTMLAttributes } from 'react';
 
 import { Results } from 'types';
@@ -21,13 +22,30 @@ export default function Compass({
 				<CanvasCompass {...transfer} results={results} />
 			</YesScript>
 			<NoScript>
-				<img
-					{...transfer}
-					alt="Your political compass"
-					src={`/api/compass.png?${new URLSearchParams(
-						results as any
-					).toString()}`}
-				/>
+				{!process.env.VERCEL ? (
+					<div style={{ textAlign: 'center' }}>
+						<p>
+							Unfortunately I cannot show you a visual compass without
+							JavaScript enabled due to an{' '}
+							<a href="https://github.com/vercel/next.js/issues/8251">
+								outstanding issue with Vercel.
+							</a>
+						</p>
+						<p>Your raw scores are:</p>
+						<p>
+							Left/Right: {results.right}, Authoritarian/Libertarian:{' '}
+							{results.auth}, Progressive/Conservative: {results.prog}.
+						</p>
+					</div>
+				) : (
+					<img
+						{...transfer}
+						alt="Your political compass"
+						src={`/api/compass.png?${new URLSearchParams(
+							results as any
+						).toString()}`}
+					/>
+				)}
 			</NoScript>
 		</>
 	);
