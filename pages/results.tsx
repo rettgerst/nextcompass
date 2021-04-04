@@ -1,56 +1,35 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react-perf/jsx-no-new-object-as-prop */
-import Link from 'next/link';
+
+import { GetServerSidePropsContext } from 'next';
 
 import { useMemo } from 'react';
 
 import useAnswers from 'hooks/useAnswers';
 import questions from 'questions.json';
 import Button from 'components/Button';
+import Compass from 'components/Compass';
+import sumAnswers from 'functions/sumAnswers';
+
+import styles from './Results.module.scss';
+
+export function getServerSideProps(ctx: GetServerSidePropsContext) {
+	return { props: {} };
+}
 
 export default function Results() {
 	const answers = useAnswers();
 
-	const sum = useMemo(() => {
-		const auth = questions
-			.filter(q => 'auth' in q.effects)
-			.reduce((sum, q) => sum + answers[q.id] * q.effects.auth!, 0);
-
-		const prog = questions
-			.filter(q => 'prog' in q.effects)
-			.reduce((sum, q) => sum + answers[q.id] * q.effects.prog!, 0);
-
-		const right = questions
-			.filter(q => 'right' in q.effects)
-			.reduce((sum, q) => sum + answers[q.id] * q.effects.right!, 0);
-
-		return { auth, prog, right };
-	}, [answers]);
+	const results = useMemo(() => sumAnswers(answers), [answers]);
 
 	return (
 		<>
 			<h1 className="title">NextCompass</h1>
 			<hr />
 			<h1 className="title">Results</h1>
-			<p style={{ textAlign: 'center' }}>
-				(Compass drawing is not implemented yet!)
-			</p>
-
-			<table style={{ margin: 'auto' }}>
-				<tr>
-					<td>Authoritarianism</td>
-					<td>{sum.auth}</td>
-				</tr>
-				<tr>
-					<td>Progressivism</td>
-					<td>{sum.prog}</td>
-				</tr>
-				<tr>
-					<td>Left-Right</td>
-					<td>{sum.right}</td>
-				</tr>
-			</table>
-
+			<div className={styles.CompassContainer}>
+				<Compass className={styles.CompassImage} results={results} />
+			</div>
 			<table style={{ margin: 'auto' }}>
 				<thead>
 					<tr>
@@ -76,7 +55,6 @@ export default function Results() {
 					))}
 				</tbody>
 			</table>
-
 			<Button href="/" style={{ backgroundColor: '#2196f3' }}>
 				Back
 			</Button>

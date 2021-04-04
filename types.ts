@@ -13,3 +13,7 @@ export interface Question {
 export type Answers = {
 	[qid: number]: number;
 };
+
+export type Results = {
+	[axis in Axes]: number;
+};
