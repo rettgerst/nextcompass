@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# https://github.com/vercel/vercel/issues/3460
+
+if ! [ -x "$(command -v yum)" ]; then
+  echo 'not a target system'
+  exit 0;
+fi
+
+yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/
