@@ -1,10 +1,11 @@
 /* eslint-disable react-perf/jsx-no-new-object-as-prop */
-import Link from 'next/link';
 
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { UrlObject } from 'node:url';
 import useQuestions from 'hooks/useQuestions';
+
+import Button from './Button';
 
 interface AnswerButtonProps {
 	text: string;
@@ -29,14 +30,8 @@ export default function Answer({ text, strength, color }: AnswerButtonProps) {
 	);
 
 	return (
-		<Link href={href}>
-			<button
-				className="button"
-				style={{ backgroundColor: color }}
-				type="button"
-			>
-				{text}
-			</button>
-		</Link>
+		<Button href={href} style={{ backgroundColor: color }}>
+			{text}
+		</Button>
 	);
 }

@@ -1,0 +1,43 @@
+.Button {
+	background-color: #2196f3;
+	font-family: 'Montserrat', sans-serif;
+	border: none;
+	border-radius: 8pt;
+	color: white;
+	padding: 8pt;
+	width: 50%;
+	min-width: 500pt;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 24pt;
+	margin: -2px auto;
+	cursor: pointer;
+	margin-bottom: 0.5em;
+
+	&:disabled {
+		background-color: #ddd;
+		font-family: 'Montserrat', sans-serif;
+		border: 2px solid #888;
+		border-radius: 8pt;
+		color: #888;
+		padding: 8pt;
+		width: 50%;
+		min-width: 500pt;
+		text-align: center;
+		text-decoration: none;
+		display: block;
+		font-size: 24pt;
+		margin: -2px auto;
+		cursor: not-allowed;
+	}
+
+	&:hover {
+		// override anchor style
+		color: white;
+	}
+
+	&:active {
+		box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.3);
+	}
+}

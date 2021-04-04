@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 
 import useAnswers from 'hooks/useAnswers';
 import questions from 'questions.json';
+import Button from 'components/Button';
 
 export default function Results() {
 	const answers = useAnswers();
@@ -76,15 +77,9 @@ export default function Results() {
 				</tbody>
 			</table>
 
-			<Link href="/">
-				<button
-					className="button"
-					style={{ backgroundColor: '#2196f3' }}
-					type="button"
-				>
-					Back
-				</button>
-			</Link>
+			<Button href="/" style={{ backgroundColor: '#2196f3' }}>
+				Back
+			</Button>
 		</>
 	);
 }

@@ -3,7 +3,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
 import React from 'react';
 
-import Answer from 'components/answer';
+import Answer from 'components/Answer';
 import useQuestions from 'hooks/useQuestions';
 
 export function getServerSideProps(ctx: GetServerSidePropsContext) {

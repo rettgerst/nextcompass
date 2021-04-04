@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Button from 'components/Button';
+
 import styles from './index.module.scss';
 
 export default function Home() {
@@ -11,11 +13,7 @@ export default function Home() {
 			<div className={styles.BannerContainer}>
 				<Image height={1300} id="banner" src="/compass.png" width={1850} />
 			</div>
-			<Link href="/quiz/0">
-				<button className="button" type="button">
-					Click here to start!
-				</button>
-			</Link>
+			<Button href="/quiz/0">Click here to start!</Button>
 
 			<h2>What is SapplyValues?</h2>
 			<p>
