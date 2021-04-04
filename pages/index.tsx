@@ -38,7 +38,7 @@ export default function Home() {
 			<p>
 				Additionally, NextCompass is a React/Next.js port of the SapplyValues
 				project. The functionality is the same as SapplyValues but may be
-				improved open in the future. It also works without JavaScript enabled!
+				improved upon in the future. It also works without JavaScript enabled!
 			</p>
 			<p>
 				The source code is available{' '}
@@ -63,7 +63,9 @@ export default function Home() {
 			</blockquote>
 			<p>
 				This project mostly serves as an example Next.js application, but is
-				also fully functional as a political compass test.
+				also fully functional as a political compass test. The biggest change at
+				the moment is that it shows you all of your answers on the results
+				screen along the political orientation of each of your answers.
 			</p>
 		</>
 	);
