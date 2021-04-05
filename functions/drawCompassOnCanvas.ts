@@ -1,22 +1,17 @@
-import getConfig from 'next/config';
-
 import canvas, { loadImage } from 'canvas';
 import { Results } from 'types';
-const { serverRuntimeConfig } = getConfig();
-
-const fileLocation = process.browser
-	? '/compass.png'
-	: `${serverRuntimeConfig.PROJECT_ROOT as string}/public/compass.png`;
 
 export default async function drawCompassOnCanvas(
 	ctx: CanvasRenderingContext2D | canvas.CanvasRenderingContext2D,
-	results: Results
+	results: Results,
+	backgroundUrl = '/compass.png',
+	font = 'sans-serif'
 ) {
 	const { right: x_axis, auth: y_axis, prog: z_axis } = results;
 
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-	const background = await loadImage(fileLocation);
+	const background = await loadImage(backgroundUrl);
 
 	ctx.fillStyle = '#EEEEEE';
 	ctx.fillRect(0, 0, 1850, 1600);
@@ -40,7 +35,7 @@ export default async function drawCompassOnCanvas(
 	ctx.strokeStyle = 'red';
 	ctx.stroke();
 
-	ctx.font = '50px sans-serif';
+	ctx.font = `50px ${font}`;
 	ctx.textAlign = 'center';
 	ctx.fillStyle = '#222222';
 	ctx.fillText(`Left / Right Axis (x): ${x_axis}`, 725, 1375);
@@ -48,6 +43,6 @@ export default async function drawCompassOnCanvas(
 	ctx.fillText(`Prog / Con Axis (z): ${z_axis}`, 725, 1525);
 
 	ctx.textAlign = 'right';
-	ctx.font = '60px sans-serif';
+	ctx.font = `60px ${font}`;
 	ctx.fillText('nextcompass.vercel.app', 1820, 1560);
 }
