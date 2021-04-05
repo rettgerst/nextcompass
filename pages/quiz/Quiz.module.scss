@@ -15,3 +15,13 @@
 	align-items: center;
 	text-align: center;
 }
+
+@media screen and (orientation: portrait) {
+	.Question {
+		min-height: 224px !important;
+		min-width: 0px;
+		max-width: 100%;
+		width: auto;
+		font-size: 1.75em;
+	}
+}
