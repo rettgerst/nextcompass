@@ -1,22 +1,16 @@
-import getConfig from 'next/config';
-
 import canvas, { loadImage } from 'canvas';
 import { Results } from 'types';
-const { serverRuntimeConfig } = getConfig();
-
-const fileLocation = process.browser
-	? '/compass.png'
-	: `${serverRuntimeConfig.PROJECT_ROOT as string}/public/compass.png`;
 
 export default async function drawCompassOnCanvas(
 	ctx: CanvasRenderingContext2D | canvas.CanvasRenderingContext2D,
-	results: Results
+	results: Results,
+	backgroundUrl = '/compass.png'
 ) {
 	const { right: x_axis, auth: y_axis, prog: z_axis } = results;
 
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-	const background = await loadImage(fileLocation);
+	const background = await loadImage(backgroundUrl);
 
 	ctx.fillStyle = '#EEEEEE';
 	ctx.fillRect(0, 0, 1850, 1600);

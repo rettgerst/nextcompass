@@ -4,6 +4,10 @@ import { createCanvas } from 'canvas';
 import drawResultsOnCanvas from 'functions/drawCompassOnCanvas';
 import { Results } from 'types';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+const compassImageUri: string = require('url-loader!public/compass.png')
+	.default;
+
 function parseQuery(query: Record<string, string | string[]>): Results {
 	const { auth, prog, right } = query;
 
@@ -27,7 +31,7 @@ export default async function drawCompass(
 	const canvas = createCanvas(1850, 1600);
 	const ctx = canvas.getContext('2d');
 
-	await drawResultsOnCanvas(ctx, results);
+	await drawResultsOnCanvas(ctx, results, compassImageUri);
 
 	res.writeHead(200, {
 		'Content-Type': 'image/png'
