@@ -21,7 +21,7 @@ export default function CanvasCompass({
 
 		if (!ctx) return;
 
-		void drawCompassOnCanvas(ctx, results, 'sans-serif');
+		void drawCompassOnCanvas(ctx, results);
 	}, [results]);
 
 	return <canvas {...transfer} height={1600} ref={canvasRef} width={1850} />;
