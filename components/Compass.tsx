@@ -22,7 +22,7 @@ export default function Compass({
 				<CanvasCompass {...transfer} results={results} />
 			</YesScript>
 			<NoScript>
-				{!process.env.VERCEL ? (
+				{process.env.VERCEL ? (
 					<div style={{ textAlign: 'center' }}>
 						<p>
 							Unfortunately I cannot show you a visual compass without
