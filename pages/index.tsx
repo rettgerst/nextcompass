@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Head from 'next/head';
 
 import Button from 'components/Button';
-import questions from 'questions.json';
 import Header from 'components/Header';
 import NoScript from 'components/NoScript';
 
