@@ -34,7 +34,7 @@ export default function Home() {
 					Sapply political compass test
 				</a>{' '}
 				with the UI of the <a href="https://8values.github.io/">8values test</a>
-				.
+				{}.
 			</p>
 			<p>
 				This project is a rewrite/port of SapplyValues to the Next.js framework
