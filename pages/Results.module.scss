@@ -47,7 +47,9 @@ $darkGrey: darken($grey, $darkDelta);
 	}
 
 	.AnswerTableWrap {
-		border: 1px solid var(--text-color);
+		border-width: 1px;
+		border-style: solid;
+		border-color: var(--text-color);
 		overflow: hidden;
 		border-radius: 8px;
 		background-color: var(--background-color);
@@ -58,20 +60,32 @@ $darkGrey: darken($grey, $darkDelta);
 			margin: auto;
 			border-collapse: collapse;
 
+			th,
+			tr,
+			td {
+				border-color: var(--text-color);
+				border-style: solid;
+				border-width: 0;
+			}
+
 			th {
-				border-bottom: 1px solid var(--text-color);
+				border-bottom-width: 1px;
 				background-color: var(--secondary-background-color);
 			}
 			tr:not(:last-child) {
 				td {
-					border-bottom: 1px solid var(--text-color);
+					border-bottom-width: 1px;
 				}
+			}
+
+			tr {
+				background-color: white;
 			}
 
 			td,
 			th {
 				&:not(:first-child) {
-					border-left: 1px solid var(--text-color);
+					border-left-width: 1px;
 				}
 				padding: 0.5em;
 			}
@@ -139,5 +153,22 @@ $darkGrey: darken($grey, $darkDelta);
 
 	.Centrist {
 		background-color: $darkGrey;
+	}
+
+	.ResultsPage {
+		.AnswerTableWrap {
+			border-color: #555;
+			.AnswerTable {
+				tr,
+				th,
+				td {
+					border-color: #555;
+				}
+
+				tr {
+					background-color: var(--background-color);
+				}
+			}
+		}
 	}
 }
