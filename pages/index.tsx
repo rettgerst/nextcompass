@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Button from 'components/Button';
 import questions from 'questions.json';
 import Header from 'components/Header';
+import NoScript from 'components/NoScript';
 
 import styles from './index.module.scss';
 
@@ -14,6 +15,13 @@ export default function Home() {
 				<title>NextCompass</title>
 			</Head>
 			<Header />
+			<NoScript>
+				<div className={styles.NoScriptHello}>
+					<p>
+						Hello NoScript user! This site works with JavaScript disabled 🎉
+					</p>
+				</div>
+			</NoScript>
 			<div className={styles.BannerContainer}>
 				<Image height={1300} id="banner" src="/compass.png" width={1850} />
 			</div>
