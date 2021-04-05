@@ -1,5 +1,38 @@
+@mixin stroke($color: #000, $size: 1px) {
+	text-shadow: -#{$size} -#{$size} 0 $color, 0 -#{$size} 0 $color,
+		#{$size} -#{$size} 0 $color, #{$size} 0 0 $color, #{$size} #{$size} 0 $color,
+		0 #{$size} 0 $color, -#{$size} #{$size} 0 $color, -#{$size} 0 0 $color;
+}
+
+@mixin quadrantGradient($angle, $from, $to) {
+	background: linear-gradient($angle, $from 0%, $from 50%, $to 50%, $to 100%);
+}
+
+$lightDelta: 40%;
+$darkDelta: 30%;
+
+$red: #f00;
+$blue: #00f;
+$green: #0f0;
+$yellow: #ff0;
+$grey: rgba(128, 128, 128);
+
+$lightRed: lighten($red, $lightDelta);
+$lightBlue: lighten($blue, $lightDelta);
+$lightGreen: lighten($green, $lightDelta);
+$lightYellow: lighten($yellow, $lightDelta);
+$lightGrey: lighten($grey, $lightDelta);
+
+$darkRed: darken($red, $darkDelta);
+$darkBlue: darken($blue, $darkDelta);
+$darkGreen: darken($green, $darkDelta);
+$darkYellow: darken($yellow, $darkDelta);
+$darkGrey: darken($grey, $darkDelta);
+
 .ResultsPage {
 	text-align: center;
+	--green: $darkGreen;
+
 	.CompassContainer {
 		margin: auto;
 		width: 100%;
@@ -14,10 +47,10 @@
 	}
 
 	.AnswerTableWrap {
-		border: 1px solid #444;
+		border: 1px solid var(--text-color);
 		overflow: hidden;
 		border-radius: 8px;
-		background-color: #eee;
+		background-color: var(--background-color);
 		margin-bottom: 1em;
 		display: inline-block;
 
@@ -26,31 +59,85 @@
 			border-collapse: collapse;
 
 			th {
-				border-bottom: 1px solid black;
-				background-color: #ddd;
+				border-bottom: 1px solid var(--text-color);
+				background-color: var(--secondary-background-color);
 			}
 			tr:not(:last-child) {
 				td {
-					border-bottom: 1px solid black;
+					border-bottom: 1px solid var(--text-color);
 				}
 			}
 
 			td,
 			th {
 				&:not(:first-child) {
-					border-left: 1px solid black;
+					border-left: 1px solid var(--text-color);
 				}
 				padding: 0.5em;
 			}
 
 			.Orientation {
 				text-align: center;
-				font-weight: bold;
-				color: white;
-				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-					1px 1px 0 #000;
-				font-variant: small-caps;
+				color: var(--text-color);
 			}
 		}
+	}
+}
+
+.Right {
+	@include quadrantGradient(180deg, $lightBlue, $lightYellow);
+}
+
+.Left {
+	@include quadrantGradient(180deg, $lightRed, $lightGreen);
+}
+
+.Auth {
+	@include quadrantGradient(90deg, $lightRed, $lightBlue);
+}
+
+.Lib {
+	@include quadrantGradient(90deg, $lightGreen, $lightYellow);
+}
+
+.Prog {
+	background-color: $lightGreen;
+}
+
+.Con {
+	background-color: $lightBlue;
+}
+
+.Centrist {
+	background-color: $lightGrey;
+}
+
+@media (prefers-color-scheme: dark) {
+	.Right {
+		@include quadrantGradient(180deg, $darkBlue, $darkYellow);
+	}
+
+	.Left {
+		@include quadrantGradient(180deg, $darkRed, $darkGreen);
+	}
+
+	.Auth {
+		@include quadrantGradient(90deg, $darkRed, $darkBlue);
+	}
+
+	.Lib {
+		@include quadrantGradient(90deg, $darkGreen, $darkYellow);
+	}
+
+	.Prog {
+		background-color: $darkGreen;
+	}
+
+	.Con {
+		background-color: $darkBlue;
+	}
+
+	.Centrist {
+		background-color: $darkGrey;
 	}
 }

@@ -1,70 +1,45 @@
-import { CSSProperties } from 'react';
-
 import { Axes } from 'types';
 
-function linearGradient(
-	startColor: string,
-	endColor: string,
-	directionDeg: number
-) {
-	return `linear-gradient(${directionDeg}deg, ${startColor} 0%, ${startColor} 50%, ${endColor} 50%, ${endColor} 100%)`;
-}
+import styles from 'pages/Results.module.scss';
 
 interface PosDesc {
 	label: string;
-	css: CSSProperties;
+	class: string;
 }
 
 const grill: PosDesc = {
 	label: 'Centrist',
-	css: { backgroundColor: 'lightgrey' }
+	class: styles.Centrist
 };
-
-const red = '#f55';
-const blue = '#55f';
-const green = '#5f5';
-const yellow = '#ff5';
 
 const auth: PosDesc = {
 	label: 'Authoritarian',
-	css: {
-		background: linearGradient(red, blue, 90)
-	}
+	class: styles.Auth
 };
 
 const lib: PosDesc = {
 	label: 'Libertarian',
-	css: {
-		background: linearGradient(green, yellow, 90)
-	}
+	class: styles.Lib
 };
 
 const left: PosDesc = {
 	label: 'Left',
-	css: {
-		background: linearGradient(red, green, 180)
-	}
+	class: styles.Left
 };
 
 const right: PosDesc = {
 	label: 'Right',
-	css: {
-		background: linearGradient(blue, yellow, 180)
-	}
+	class: styles.Right
 };
 
 const prog: PosDesc = {
 	label: 'Progressive',
-	css: {
-		backgroundColor: green
-	}
+	class: styles.Prog
 };
 
 const con: PosDesc = {
 	label: 'Conservative',
-	css: {
-		backgroundColor: blue
-	}
+	class: styles.Con
 };
 
 export default function getPositionDescription(

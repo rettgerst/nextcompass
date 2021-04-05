@@ -9,6 +9,8 @@ import Answer from 'components/Answer';
 import useQuestions from 'hooks/useQuestions';
 import Header from 'components/Header';
 
+import styles from './Quiz.module.scss';
+
 export function getServerSideProps(ctx: GetServerSidePropsContext) {
 	// do nothing, I just don't want this page statically optimized lol
 	return { props: {} };
@@ -29,9 +31,7 @@ export default function Quiz(
 			<h2 id="question-number" style={{ textAlign: 'center' }}>
 				Question {question.id + 1} of {questionCount}
 			</h2>
-			<p className="question" id="question-text">
-				{question.question}
-			</p>
+			<p className={styles.Question}>{question.question}</p>
 			<Answer color="#1b5e20" strength={1.0} text="Strongly Agree" />
 			<Answer color="#4caf50" strength={0.5} text="Agree" />
 			<Answer color="#bbbbbb" strength={0} text="Neutral / Unsure" />

@@ -1,0 +1,17 @@
+.Question {
+	margin: 16pt auto;
+	color: var(--text-color);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+	width: 70%;
+	min-width: 500pt;
+	min-height: 144pt;
+	background-color: var(--secondary-background-color);
+	padding: 16pt;
+	border-radius: 16pt;
+	font-size: 36pt;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}

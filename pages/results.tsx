@@ -63,7 +63,7 @@ export default function Results() {
 								<tr key={q.id}>
 									<td>{q.question}</td>
 									<td>{Answers[answers[q.id]]}</td>
-									<td className={styles.Orientation} style={desc.css}>
+									<td className={`${styles.Orientation} ${desc.class}`}>
 										{desc.label}
 									</td>
 								</tr>
