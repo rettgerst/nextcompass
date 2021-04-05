@@ -14,8 +14,7 @@ interface CompassProps {
 export default function Compass({
 	results,
 	...transfer
-}: CompassProps &
-	Omit<HTMLAttributes<HTMLCanvasElement | HTMLImageElement>, 'results'>) {
+}: CompassProps & Omit<HTMLAttributes<HTMLImageElement>, 'results'>) {
 	return (
 		<>
 			<YesScript>
