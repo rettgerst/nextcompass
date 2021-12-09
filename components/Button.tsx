@@ -15,7 +15,7 @@ export default function Button({
 	...transfer
 }: ButtonProps & React.HTMLAttributes<HTMLAnchorElement>) {
 	return (
-		<Link href={href}>
+		<Link shallow href={href}>
 			<a className={styles.Button} {...transfer}>
 				{children}
 			</a>
