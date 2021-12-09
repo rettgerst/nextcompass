@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 
 import { useMemo } from 'react';
 
-import questions from 'questions.json';
-
 import useAnswers from './useAnswers';
+
+import questions from 'questions.json';
 
 export default function useQuestions() {
 	const router = useRouter();

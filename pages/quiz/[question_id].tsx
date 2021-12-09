@@ -1,4 +1,3 @@
-/* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
 import Head from 'next/head';

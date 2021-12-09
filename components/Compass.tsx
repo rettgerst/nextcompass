@@ -1,11 +1,10 @@
-/* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { HTMLAttributes } from 'react';
-
-import { Results } from 'types';
 
 import CanvasCompass from './CanvasCompass';
 import NoScript from './NoScript';
 import YesScript from './YesScript';
+
+import { Results } from 'types';
 
 interface CompassProps {
 	results: Results;

@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable react-perf/jsx-no-new-object-as-prop */
-
 import { GetServerSidePropsContext } from 'next';
 
 import Head from 'next/head';

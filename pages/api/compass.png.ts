@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { createCanvas, registerFont } from 'canvas';
+
 import drawResultsOnCanvas from 'functions/drawCompassOnCanvas';
 import { Results } from 'types';
 import tmpFont from 'functions/tmpFont';

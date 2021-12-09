@@ -1,11 +1,10 @@
-/* eslint-disable react-perf/jsx-no-new-object-as-prop */
-
 import React, { useMemo } from 'react';
 
 import { UrlObject } from 'node:url';
-import useQuestions from 'hooks/useQuestions';
 
 import Button from './Button';
+
+import useQuestions from 'hooks/useQuestions';
 
 interface AnswerButtonProps {
 	text: string;
