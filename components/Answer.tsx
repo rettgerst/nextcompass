@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
+import { UrlObject } from 'url';
 
-import { UrlObject } from 'node:url';
+import React, { useMemo } from 'react';
 
 import Button from './Button';
 
