@@ -1,13 +1,13 @@
-import Image from 'next/legacy/image';
 import Head from 'next/head';
 
+import Image from 'next/legacy/image';
 import Button from 'components/Button';
 import Header from 'components/Header';
 import NoScript from 'components/NoScript';
+import compass from 'public/compass.png';
 
 import styles from './index.module.scss';
 
-import compass from 'public/compass.png';
 
 export default function Home() {
 	return (

@@ -27,5 +27,6 @@ export default function CanvasCompass({
 		return canvas.toDataURL();
 	}, [results]);
 
+	// eslint-disable-next-line @next/next/no-img-element
 	return <img alt="Your political compass" {...transfer} src={src} />;
 }

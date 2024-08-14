@@ -1,10 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import { HTMLAttributes } from 'react';
+
+import { Results } from 'types';
 
 import CanvasCompass from './CanvasCompass';
 import NoScript from './NoScript';
 import YesScript from './YesScript';
 
-import { Results } from 'types';
 
 interface CompassProps {
 	results: Results;

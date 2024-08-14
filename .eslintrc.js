@@ -1,5 +1,10 @@
 module.exports = {
-	extends: ['next', 'prettier'],
+	parser: '@typescript-eslint/parser',
+	parserOptions: {
+		sourceType: 'module',
+		"ecmaVersion": 2024
+	},
+	extends: ['plugin:@next/next/recommended', 'prettier', 'plugin:import/recommended'],
 	env: {
 		browser: true
 	},
@@ -69,29 +74,11 @@ module.exports = {
 		'import/no-unresolved': ['off'],
 		'import/no-named-as-default': ['off'],
 		'no-mixed-spaces-and-tabs': ['off'],
-		'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
-		'react/require-default-props': ['off'],
 		'@typescript-eslint/explicit-member-accessibility': 'off',
 
 		// handled by typescript
 		'react/prop-types': 'off',
 
-		// handled by prettier
-		'react/jsx-indent': 'off',
-		'react/jsx-indent-props': 'off',
-		'react/jsx-max-props-per-line': 'off',
-		'react/jsx-max-depth': 'off',
-		'react/jsx-one-expression-per-line': 'off',
-
-		// stylistic, don't like
-		'react/jsx-newline': 'off',
-
-		// stupid
-		'react/jsx-no-literals': 'off',
-		'react/function-component-definition': 'off',
-		'react/jsx-props-no-spreading': 'off',
-		'react/destructuring-assignment': 'off',
-		'react/react-in-jsx-scope': 'off',
 		// https://github.com/vercel/next.js/issues/5533
 		'jsx-a11y/anchor-is-valid': 'off',
 

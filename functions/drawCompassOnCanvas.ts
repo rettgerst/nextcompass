@@ -15,6 +15,7 @@ export default async function drawCompassOnCanvas(
 
 	ctx.fillStyle = '#EEEEEE';
 	ctx.fillRect(0, 0, 1850, 1600);
+	// @ts-ignore
 	ctx.drawImage((background as any) as HTMLImageElement, 0, 0);
 
 	ctx.beginPath();

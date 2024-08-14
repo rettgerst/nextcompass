@@ -2,9 +2,10 @@ import { UrlObject } from 'url';
 
 import React, { useMemo } from 'react';
 
+import useQuestions from 'hooks/useQuestions';
+
 import Button from './Button';
 
-import useQuestions from 'hooks/useQuestions';
 
 interface AnswerButtonProps {
 	text: string;
