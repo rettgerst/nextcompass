@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['next/core-web-vitals', 'prettier'],
+	extends: ['next', 'prettier'],
 	env: {
 		browser: true
 	},

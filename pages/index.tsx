@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Head from 'next/head';
 
 import Button from 'components/Button';
@@ -6,6 +6,8 @@ import Header from 'components/Header';
 import NoScript from 'components/NoScript';
 
 import styles from './index.module.scss';
+
+import compass from 'public/compass.png';
 
 export default function Home() {
 	return (
@@ -22,7 +24,7 @@ export default function Home() {
 				</div>
 			</NoScript>
 			<div className={styles.BannerContainer}>
-				<Image height={1300} id="banner" src="/compass.png" width={1850} />
+				<Image height={1300} id="banner" src={compass}  />
 			</div>
 			<Button href="/quiz/0">Click here to start!</Button>
 			<h2>What is NextCompass?</h2>
